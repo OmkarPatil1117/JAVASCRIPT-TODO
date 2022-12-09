@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Java todo</title>
+    <style>
+        body {
+            margin: 0px;
+            padding: 0px;
+            box-sizing: border-box;
+            background-color: black;
+            margin: 2rem;
+            color: white;
+        }
+        nav {
+            display: flex;
+            justify-content: space-between;
+        }
+        h1 {
+            padding: 1rem;
+            color: white;
+        }
+        span {
+            color: orange;
+        }
+        section {
+            margin: 1rem;
+        }
+        .popup {
+            width: 24rem;
+            height: 12rem;
+            background-color: white;
+            text-align: center;
+            border-radius: 2rem;
+            position: absolute;
+            top: 16rem;
+            right: 40%;
+        }
+        input {
+            padding: 0.8rem;
+            width: 80%;
+            border-radius: 1rem;
+            text-align: center;
+            margin: 1rem;
+        }
+        .addClose {
+            display: flex;
+            justify-content: center;
+        }
+        #addData, .closeTab  {
+            padding: 0.4rem;
+            width: 6rem;
+            margin: 4px;
+            border-radius: 1rem;
+            background-color: orange;
+            color: white;
+        }
+        .card {
+            width: 25%;
+            height: 24rem;
+            background-color: lightblue;
+            text-align: center;
+            position: relative;
+            margin: 1rem;
+        }
+        .cardHeader {
+            font-size: 1.6rem;
+            margin: 0.7rem;
+            padding: 0.4rem;
+        }
+        section {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+        strong {
+            color: black;
+        }
+        #cardAdd {
+            width: 4rem;
+            margin: 1rem;
+            position: absolute;
+            bottom: 0.4rem;
+            right: 5rem;
+
+        }
+        #cardRemove {
+            width: 4rem;
+            margin: 1rem;
+            position: absolute;
+            bottom: 0.4rem;
+            right: 0.4rem;
+        }
+        @media only screen and (max-width:500px)  {
+            .popup {
+                width: 17rem;
+                height: 12rem;
+                position: absolute;
+                top: 16rem;
+                right: 15%;
+            }          
+            .card {
+                width: 100%;
+                margin: 0rem;
+                margin-bottom: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <h1>Tasks <span>List</span></h1>
+        <h1 id="add" >Add item</h1>
+    </nav>
+
+    <section>
+        <span id="empty" > <span  >No items in the todo list</span></span>
+           <!-- <div class="card">
+            <p class="cardHeader">Trip to bhutan</p>
+            <hr>
+            <input id="cardAdd" type="button" value="Add">
+            <input id="cardRemove" type="button" value="Remove">
+          </div>     -->
+    </section>
+    <!-- <div class="popup">
+        <div class="div">
+            <p>
+                <strong>Add New List</strong>
+            </p>
+            <input type="text" placeholder="Add New List">
+            <div class="addClose">
+                <button id="addData">add</button>
+                <button class="closeTab">Close</button>
+            </div>
+        </div>
+    </div> -->
+   <script src="./main.js"></script>
+</body>
+</html>
