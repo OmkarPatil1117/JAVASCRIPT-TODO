@@ -24,10 +24,13 @@ let getData = ()=> {
 
   let Add = document.querySelector("#addData");
   Add.addEventListener("click", ()=> {
+    let data = document.querySelector("#inp").value;
+    if(data === "") {
+      return alert("Please add Task");
+    }
     if( document.querySelector("#empty")) {
       document.querySelector("#empty").remove();
     }
-    let data = document.querySelector("#inp").value;
     let card = document.createElement("div");
     card.className = "card"
     let htmlD = `
@@ -40,6 +43,7 @@ let getData = ()=> {
     `
     card.innerHTML = htmlD;
     document.querySelector("section").appendChild(card);
+    document.querySelector("#inp").value = "";
     let del = card.querySelector("#cardRemove");
     del.addEventListener("click", ()=> {
       card.remove();
@@ -52,7 +56,7 @@ let getData = ()=> {
     let htmlData = `
     <div class="div">
               <p>
-                  <strong>Add New inner List</strong>
+                  <strong>Add Task List</strong>
               </p>
               <input type="text" id="innerinp" placeholder="Add inner List">
               <div class="addClose">
@@ -74,6 +78,9 @@ let getData = ()=> {
     let addCradData = innerpopup.querySelector("#addInnerData");
     addCradData.addEventListener("click", ()=> {
       let innerData = innerpopup.querySelector("#innerinp").value;
+      if(innerData === "") {
+        return alert("Please add Task");
+      }
       console.log(innerData);
       let inDiv = document.createElement("div");
       inDiv.className = "innerD"
@@ -81,7 +88,8 @@ let getData = ()=> {
       <div id="inD"> ${innerData}</div>
       `
       inDiv.innerHTML = htmlADD;
-      card.querySelector("#innerData").appendChild(inDiv);
+      card.querySelector("#innerData").appendChild(inDiv)
+      innerpopup.querySelector("#innerinp").value = "";
 
       let linetho  = inDiv.querySelector("#inD");
       linetho.addEventListener("click", ()=> {
