@@ -14,6 +14,7 @@
             background-color: #87CEEB;
             margin: 2rem;
             color: white;
+            transition: 2s ease-in-out;
         }
         nav {
             display: flex;
@@ -26,9 +27,13 @@
         }
         span {
             color: orange;
+            font-size: 2rem;
         }
         section {
             margin: 1rem;
+        }
+        i {
+            cursor: pointer;
         }
         .popup {
             width: 24rem;
@@ -107,6 +112,12 @@
             cursor: pointer;
 
         }
+        #curser {
+            cursor: pointer;
+        }
+        #curser:active {
+            color: #00FF00;
+        }
         
         @media only screen and (max-width:500px)  {
             .popup {
@@ -132,7 +143,7 @@
 <body>
     <nav>
         <h1>Tasks <span>List</span></h1>
-        <h1 id="add" ><i class="fa-solid fa-circle-plus"></i> <b id="none"> Add items</b></h1>
+        <h1 id="add" ><div id="curser"> <i class="fa-solid fa-circle-plus"></i> <b id="none"> Add items</b></div></h1>
     </nav>
 
     <section>
