@@ -33,19 +33,60 @@ let getData = ()=> {
     let htmlD = `
     <p class="cardHeader">${data}</p>
             <hr>
-            <input id="cardAdd" type="button" value="Add">
-            <input id="cardRemove" type="button" value="Remove">
+            <div id="innerData">
+            </div>
+            <i class="fa-solid fa-circle-plus" id="cardAdd"></i>
+            <i class="fa-solid fa-trash" id="cardRemove"></i>
     `
     card.innerHTML = htmlD;
     document.querySelector("section").appendChild(card);
     let del = card.querySelector("#cardRemove");
     del.addEventListener("click", ()=> {
-      console.log("Hello");
       card.remove();
     })
+    
+    let inCardAdd = card.querySelector("#cardAdd")
+    inCardAdd.addEventListener("click", ()=> {
+    let innerpopup = document.createElement('div');
+    innerpopup.className = "popup"
+    let htmlData = `
+    <div class="div">
+              <p>
+                  <strong>Add New inner List</strong>
+              </p>
+              <input type="text" id="innerinp" placeholder="Add inner List">
+              <div class="addClose">
+                  <button id="addInnerData">add</button>
+                  <button class="closeInnerTab">Close</button>
+              </div>
+          </div>
+    ` 
+    innerpopup.innerHTML = htmlData;
+    document.body.appendChild(innerpopup);
 
+    let delet = innerpopup.querySelector(".closeInnerTab")
+    delet.addEventListener("click", ()=> {
+      console.log("hello");
+      innerpopup.remove();
+    })
+
+
+    let addCradData = innerpopup.querySelector("#addInnerData");
+    addCradData.addEventListener("click", ()=> {
+      let innerData = innerpopup.querySelector("#innerinp").value;
+      console.log(innerData);
+      let inDiv = document.createElement("div");
+      inDiv.className = "innerD"
+      inDiv.innerHTML = innerData;
+      card.querySelector("#innerData").appendChild(inDiv);
+      let overLine = document.querySelector(".innerD")
+      overLine.addEventListener("click", ()=> {
+        console.log("HEloo");
+        overLine.style = "text-decoration:line-through;"
+      })
+    })
+    })
   })
-
 }
 
 

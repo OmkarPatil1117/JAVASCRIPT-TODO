@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+<head> 
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css" integrity="sha512-10/jx2EXwxxWqCLX/hHth/vu2KY3jCF70dCQB8TSgNjbCVAC/8vai53GfMDrO2Emgwccf2pJqxct9ehpzG+MTw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>Java todo</title>
     <style>
         body {
@@ -49,7 +50,7 @@
             display: flex;
             justify-content: center;
         }
-        #addData, .closeTab  {
+        #addData, .closeTab, #addInnerData, .closeInnerTab  {
             padding: 0.4rem;
             width: 6rem;
             margin: 4px;
@@ -58,9 +59,9 @@
             color: white;
         }
         .card {
-            width: 25%;
-            height: 24rem;
-            background-color: lightblue;
+            width: 20%;
+            height: 20rem;
+            background-color: orange;
             text-align: center;
             position: relative;
             margin: 1rem;
@@ -79,20 +80,24 @@
             color: black;
         }
         #cardAdd {
-            width: 4rem;
-            margin: 1rem;
+            width: 2rem;
+            margin: 0.4rem;
             position: absolute;
             bottom: 0.4rem;
-            right: 5rem;
+            right: 3rem;
 
         }
         #cardRemove {
-            width: 4rem;
-            margin: 1rem;
+            width:2rem;
+            margin: 0.4rem;
             position: absolute;
             bottom: 0.4rem;
             right: 0.4rem;
         }
+        #empty {
+            text-decoration:line-through;
+        }
+        
         @media only screen and (max-width:500px)  {
             .popup {
                 width: 17rem;
@@ -105,14 +110,16 @@
                 width: 100%;
                 margin: 0rem;
                 margin-bottom: 1rem;
+                
             }
         }
+    
     </style>
 </head>
 <body>
     <nav>
         <h1>Tasks <span>List</span></h1>
-        <h1 id="add" >Add item</h1>
+        <h1 id="add" ><i class="fa-solid fa-circle-plus"></i> Add item</h1>
     </nav>
 
     <section>
@@ -120,6 +127,8 @@
            <!-- <div class="card">
             <p class="cardHeader">Trip to bhutan</p>
             <hr>
+            <div id="innerData">
+            </div>
             <input id="cardAdd" type="button" value="Add">
             <input id="cardRemove" type="button" value="Remove">
           </div>     -->
@@ -129,6 +138,7 @@
             <p>
                 <strong>Add New List</strong>
             </p>
+            
             <input type="text" placeholder="Add New List">
             <div class="addClose">
                 <button id="addData">add</button>
