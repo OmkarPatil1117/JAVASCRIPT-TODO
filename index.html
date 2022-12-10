@@ -11,7 +11,7 @@
             margin: 0px;
             padding: 0px;
             box-sizing: border-box;
-            background-color: black;
+            background-color: #87CEEB;
             margin: 2rem;
             color: white;
         }
@@ -22,6 +22,7 @@
         h1 {
             padding: 1rem;
             color: white;
+            font-size: 1.8rem;
         }
         span {
             color: orange;
@@ -61,10 +62,15 @@
         .card {
             width: 20%;
             height: 20rem;
-            background-color: orange;
+            background-color: #FFFF00;
+            color: black;
             text-align: center;
             position: relative;
             margin: 1rem;
+        }
+        .card:hover {
+            box-shadow: 1rem 1rem 1rem black;
+            transform: translateY(-12px);
         }
         .cardHeader {
             font-size: 1.6rem;
@@ -96,6 +102,10 @@
         }
         #line {
             text-decoration: line-through;
+        }
+        .innerD:hover {
+            cursor: pointer;
+
         }
         
         @media only screen and (max-width:500px)  {
