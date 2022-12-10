@@ -77,12 +77,16 @@ let getData = ()=> {
       console.log(innerData);
       let inDiv = document.createElement("div");
       inDiv.className = "innerD"
-      inDiv.innerHTML = innerData;
+      let htmlADD = `
+      <div id="inD"> ${innerData}</div>
+      `
+      inDiv.innerHTML = htmlADD;
       card.querySelector("#innerData").appendChild(inDiv);
-      let overLine = document.querySelector(".innerD")
-      overLine.addEventListener("click", ()=> {
-        console.log("HEloo");
-        overLine.style = "text-decoration:line-through;"
+
+      let linetho  = inDiv.querySelector("#inD");
+      linetho.addEventListener("click", ()=> {
+        console.log("Hello");
+        linetho.id = "line"
       })
     })
     })
