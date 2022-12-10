@@ -94,9 +94,6 @@
             bottom: 0.4rem;
             right: 0.4rem;
         }
-        #empty {
-            text-decoration:line-through;
-        }
         
         @media only screen and (max-width:500px)  {
             .popup {
@@ -112,6 +109,9 @@
                 margin-bottom: 1rem;
                 
             }
+            #none {
+                display: none;
+            } 
         }
     
     </style>
@@ -119,7 +119,7 @@
 <body>
     <nav>
         <h1>Tasks <span>List</span></h1>
-        <h1 id="add" ><i class="fa-solid fa-circle-plus"></i> Add item</h1>
+        <h1 id="add" ><i class="fa-solid fa-circle-plus"></i> <b id="none"> Add items</b></h1>
     </nav>
 
     <section>
