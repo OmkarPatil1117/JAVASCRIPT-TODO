@@ -1,3 +1,47 @@
+var arr = [];
+let storedDat = localStorage.getItem("arr")
+if(storedDat == null ) {
+  console.log("null");
+} else {
+let mainArr = storedDat.split(",")
+console.log(mainArr);
+mainArr.map( (item)=> {
+  let data = item;
+  if(data === "") {
+    return
+  }
+  if( document.querySelector("#empty")) {
+    document.querySelector("#empty").remove();
+  }
+  let card = document.createElement("div");
+  card.className = "card"
+  let htmlD = `
+            <p class="cardHeader">${data}</p>
+            <hr>
+            <div id="innerData">
+            </div>
+            <i class="fa-solid fa-circle-plus" id="cardAdd"></i>
+            <i class="fa-solid fa-trash" id="cardRemove"></i>  
+  `
+  card.innerHTML = htmlD;
+  document.querySelector("section").appendChild(card);
+  // document.querySelector("#inp").value = "";
+  let del = card.querySelector("#cardRemove");
+  del.addEventListener("click", ()=> {
+      console.log("Hello");
+    card.remove();
+    if(mainArr.includes(data)) {
+      console.log("Hello");
+      let index = mainArr.indexOf(data);
+      console.log(index);
+      mainArr.splice(index, index + 1)
+      localStorage.setItem("arr", mainArr)
+    }
+  })
+})
+
+}
+
 let add = document.querySelector("#add");
 let getData = ()=> {
   let popup = document.createElement('div');
@@ -22,12 +66,17 @@ let getData = ()=> {
     popup.remove();
   })
 
+
+
+
   let Add = document.querySelector("#addData");
   Add.addEventListener("click", ()=> {
     let data = document.querySelector("#inp").value;
     if(data === "") {
       return alert("Please add Task");
     }
+    arr.push(data);
+    localStorage.setItem("arr", arr)
     if( document.querySelector("#empty")) {
       document.querySelector("#empty").remove();
     }
@@ -46,9 +95,18 @@ let getData = ()=> {
     document.querySelector("#inp").value = "";
     let del = card.querySelector("#cardRemove");
     del.addEventListener("click", ()=> {
+        console.log("Hello");
       card.remove();
+    //   if(mainArr.includes(data)) {
+    //     let index = mainArr.indexOf(data);
+    //     mainArr.splice(index, index + 1)
+    //   }
     })
     
+
+
+
+
     let inCardAdd = card.querySelector("#cardAdd")
     inCardAdd.addEventListener("click", ()=> {
     let innerpopup = document.createElement('div');
@@ -73,6 +131,11 @@ let getData = ()=> {
       console.log("hello");
       innerpopup.remove();
     })
+
+
+
+
+
 
 
     let addCradData = innerpopup.querySelector("#addInnerData");
@@ -100,9 +163,4 @@ let getData = ()=> {
     })
   })
 }
-
-
-
-
-
-add.addEventListener("click", getData)
+add.addEventListener("click", getData);
