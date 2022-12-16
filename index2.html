@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-<head> 
+<head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css" integrity="sha512-10/jx2EXwxxWqCLX/hHth/vu2KY3jCF70dCQB8TSgNjbCVAC/8vai53GfMDrO2Emgwccf2pJqxct9ehpzG+MTw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <title>Java todo</title>
+    <title>Document</title>
     <style>
         body {
             margin: 0px;
@@ -65,13 +65,13 @@
             color: white;
         }
         .card {
-            width: 20%;
+            width: 30%;
             height: 20rem;
             background-color: #FFFF00;
             color: black;
             text-align: center;
             position: relative;
-            margin: 1rem;
+            margin-left: 30%;
         }
         .card:hover {
             box-shadow: 1rem 1rem 1rem black;
@@ -83,9 +83,7 @@
             padding: 0.4rem;
         }
         section {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
+            justify-content: center;
         }
         strong {
             color: black;
@@ -129,7 +127,7 @@
             }          
             .card {
                 width: 100%;
-                margin: 0rem;
+                margin: auto;
                 margin-bottom: 1rem;
                 
             }
@@ -142,36 +140,75 @@
 </head>
 <body>
     <nav>
-        <h1>Tasks <span>List</span></h1>
+        <h1><a href="./index.html">Back</a></h1>
         <h1 id="add" ><div id="curser"> <i class="fa-solid fa-circle-plus"></i> <b id="none"> Add items</b></div></h1>
     </nav>
-
-    <section>
-        
-        <span id="empty" > <span  >No items in the todo list</span></span>
-           <!-- <div class="card">
-            <p class="cardHeader">Trip to bhutan</p>
+    <div class="card">
+        <section>
+            <p class="cardHeader"></p>
             <hr>
             <div id="innerData">
+
             </div>
-            <input id="cardAdd" type="button" value="Add">
-            <input id="cardRemove" type="button" value="Remove">
-          </div>     -->
-    </section>
-    <!-- <div class="popup">
-        <div class="div">
-            <p>
-                <strong>Add New List</strong>
-            </p>
-            
-            <input type="text" placeholder="Add New List">
-            <div class="addClose">
-                <button id="addData">add</button>
-                <button class="closeTab">Close</button>
-            </div>
-        </div>
-    </div> -->
-   <script src="./main.js"></script>
-   
+            <i class="fa-solid fa-circle-plus" id="cardAdd"></i>
+            <i class="fa-solid fa-trash" id="cardRemove"></i> 
+          </div>   
+        </section>
+        <script>
+            let Data = localStorage.getItem("nextPageData");
+            console.log(Data);
+            let obj = JSON.parse(Data)
+            document.querySelector(".cardHeader").textContent = obj.data
+            console.log(obj);
+            let str = obj.indata
+            let arr = str.split(",");
+            console.log(arr);
+            document.querySelector("#innerData").innerHTML = ` ${arr[0]} <br> ${arr[1]} <br> ${arr[2] == undefined || "" ? "" : arr[2 + 1]}`
+
+
+            let arrData = [];
+            document.querySelector("#add").addEventListener("click", ()=> {
+                let popup = document.createElement('div');
+            popup.className = "popup"
+            let htmlData = `
+            <div class="div">
+                    <p>
+                        <strong>Add New List</strong>
+                    </p>
+                    <input type="text" id="inp" placeholder="Add New List">
+                    <div class="addClose">
+                        <button id="addData">add</button>
+                        <button class="closeTab">Close</button>
+                    </div>
+                </div>
+            ` 
+            popup.innerHTML = htmlData;
+            document.body.appendChild(popup);
+        
+            let delet = popup.querySelector(".closeTab")
+            delet.addEventListener("click", ()=> {
+            popup.remove();
+            })
+
+        
+
+            let Add = document.querySelector("#addData");
+            Add.addEventListener("click", ()=> {
+             
+            let data = document.querySelector("#inp").value;
+            if(data === "") {
+                return alert("Please add Task");
+            }
+            function obj(name) {
+                this.name = name
+            }
+            let objname = new obj(data)
+            let jarr  = JSON.stringify(objname)
+            localStorage.setItem("arrN", jarr)
+            console.log(localStorage.getItem("arrN"));
+            popup.remove();
+    })
+})
+        </script>   
 </body>
 </html>
