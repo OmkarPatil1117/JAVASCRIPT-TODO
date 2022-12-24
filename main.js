@@ -61,11 +61,7 @@ const addCard = ()=> {
 const removeCard = (name)=> {
     arr.filter( (card, index, arr)=> {
         if(card.header == name) {
-            if( arr.length == 1 || arr.length == 2 ) {
-                arr.splice(index, index + 1)
-            } else {
-                arr.splice(index, index)
-            }
+                arr.splice(index, 1)
         }
     })
     map()
