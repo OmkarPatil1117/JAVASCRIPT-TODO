@@ -145,10 +145,3 @@ const nextPage = (cardName)=> {
     } )
    
 }
-
-
-
-
-
-
-
