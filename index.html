@@ -70,8 +70,9 @@
             background-color: #FFFF00;
             color: black;
             text-align: center;
-            position: relative;
             margin: 1rem;
+            overflow-y: scroll;
+            font-size: 1.2rem;
         }
         .card:hover {
             box-shadow: 1rem 1rem 1rem black;
@@ -118,6 +119,12 @@
         #curser:active {
             color: #00FF00;
         }
+
+        .cardContainer {
+            background-color: yellow;
+            position: relative;
+            color: black;
+        }
         
         @media only screen and (max-width:500px)  {
             .popup {
@@ -132,6 +139,10 @@
                 margin: 0rem;
                 margin-bottom: 1rem;
                 
+            }
+            .cardContainer {
+                width: 100%;
+                margin-bottom: 1rem;
             }
             #none {
                 display: none;
@@ -150,14 +161,18 @@
 
     <section id="sec">
         <span id="empty" > <span  >No items in the todo list</span></span> 
-           <!-- <div class="card">
-            <p class="cardHeader">Trip to bhutan</p>
+        <!-- <div class="cardContainer">
+        <div class="card ${card.header}">
+            <p class="cardHeader" onclick="nextPage('${card.header}')">${card.header}</p>
             <hr>
             <div id="innerData">
+                <div id="${card.arr[0]}" onclick="line('${card.arr[0]}')" > ${card.arr[0] == undefined ? " " : card.arr[0]} </div>
+                <div id="${card.arr[1]}" onclick="line('${card.arr[1]}')"> ${card.arr[1] == undefined ? " " : card.arr[1]} </div>
             </div>
-            <input id="cardAdd" type="button" value="Add">
-            <input id="cardRemove" type="button" value="Remove">
-          </div>     -->
+        </div>
+        <i class="fa-solid fa-circle-plus" id="cardAdd" onclick="addInnerData('${card.header}')"></i>
+        <i class="fa-solid fa-trash" id="cardRemove" onclick="removeCard('${card.header}')" ></i>
+    </div>  -->
     </section>
 </div>
     <!-- <div class="popup">

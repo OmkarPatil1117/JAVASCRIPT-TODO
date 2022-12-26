@@ -6,29 +6,31 @@ const map = ()=> {
     document.getElementById("sec").style.justifyContent = "space-between";
     arr.map( (card)=> {
             const CardHtmlData = `
+        <div class="cardContainer">
             <div class="card ${card.header}">
                 <p class="cardHeader" onclick="nextPage('${card.header}')">${card.header}</p>
                 <hr>
                 <div id="innerData">
-                <div id="${card.arr[0]}" onclick="line('${card.arr[0]}')" > ${card.arr[0] == undefined ? " " : card.arr[0]} </div>
-                <div id="${card.arr[1]}" onclick="line('${card.arr[1]}')"> ${card.arr[1] == undefined ? " " : card.arr[1]} </div>
-                <div id="${card.arr[2]}" onclick="line('${card.arr[2]}')"> ${card.arr[2] == undefined ? " " : card.arr[2]} </div>
-                <div id="${card.arr[3]}" onclick="line('${card.arr[3]}')"> ${card.arr[3] == undefined ? " " : card.arr[3]} </div>
-                <div id="${card.arr[4]}" onclick="line('${card.arr[4]}')"> ${card.arr[4] == undefined ? " " : card.arr[4]} </div>
-                <div id="${card.arr[5]}" onclick="line('${card.arr[5]}')"> ${card.arr[5] == undefined ? " " : card.arr[5]} </div>
-                <div id="${card.arr[6]}" onclick="line('${card.arr[6]}')"> ${card.arr[6] == undefined ? " " : card.arr[6]} </div>
-                <div id="${card.arr[7]}" onclick="line('${card.arr[7]}')"> ${card.arr[7] == undefined ? " " : card.arr[7]} </div>
-                <div id="${card.arr[8]}" onclick="line('${card.arr[8]}')"> ${card.arr[8] == undefined ? " " : card.arr[8]} </div>
-                <div id="${card.arr[9]}" onclick="line('${card.arr[9]}')"> ${card.arr[9] == undefined ? " " : card.arr[9]} </div>
-                <div id="${card.arr[10]}" onclick="line('${card.arr[10]}')"> ${card.arr[10] == undefined ? " " : card.arr[10]} </div>
-                <div id="${card.arr[11]}" onclick="line('${card.arr[11]}')"> ${card.arr[11] == undefined ? " " : card.arr[11]} </div>
-                <div id="${card.arr[12]}" onclick="line('${card.arr[12]}')"> ${card.arr[12] == undefined ? " " : card.arr[12]} </div>
-                <div id="${card.arr[13]}" onclick="line('${card.arr[13]}')"> ${card.arr[13] == undefined ? " " : card.arr[13]} </div>
-                <div id="${card.arr[14]}" onclick="line('${card.arr[14]}')"> ${card.arr[14] == undefined ? " " : card.arr[14]} </div>
+                    <div id="${card.arr[0]}" onclick="line('${card.arr[0]}')" > ${card.arr[0] == undefined ? " " : card.arr[0]} </div>
+                    <div id="${card.arr[1]}" onclick="line('${card.arr[1]}')"> ${card.arr[1] == undefined ? " " : card.arr[1]} </div>
+                    <div id="${card.arr[2]}" onclick="line('${card.arr[2]}')"> ${card.arr[2] == undefined ? " " : card.arr[2]} </div>
+                    <div id="${card.arr[3]}" onclick="line('${card.arr[3]}')"> ${card.arr[3] == undefined ? " " : card.arr[3]} </div>
+                    <div id="${card.arr[4]}" onclick="line('${card.arr[4]}')"> ${card.arr[4] == undefined ? " " : card.arr[4]} </div>
+                    <div id="${card.arr[5]}" onclick="line('${card.arr[5]}')"> ${card.arr[5] == undefined ? " " : card.arr[5]} </div>
+                    <div id="${card.arr[6]}" onclick="line('${card.arr[6]}')"> ${card.arr[6] == undefined ? " " : card.arr[6]} </div>
+                    <div id="${card.arr[7]}" onclick="line('${card.arr[7]}')"> ${card.arr[7] == undefined ? " " : card.arr[7]} </div>
+                    <div id="${card.arr[8]}" onclick="line('${card.arr[8]}')"> ${card.arr[8] == undefined ? " " : card.arr[8]} </div>
+                    <div id="${card.arr[9]}" onclick="line('${card.arr[9]}')"> ${card.arr[9] == undefined ? " " : card.arr[9]} </div>
+                    <div id="${card.arr[10]}" onclick="line('${card.arr[10]}')"> ${card.arr[10] == undefined ? " " : card.arr[10]} </div>
+                    <div id="${card.arr[11]}" onclick="line('${card.arr[11]}')"> ${card.arr[11] == undefined ? " " : card.arr[11]} </div>
+                    <div id="${card.arr[12]}" onclick="line('${card.arr[12]}')"> ${card.arr[12] == undefined ? " " : card.arr[12]} </div>
+                    <div id="${card.arr[13]}" onclick="line('${card.arr[13]}')"> ${card.arr[13] == undefined ? " " : card.arr[13]} </div>
+                    <div id="${card.arr[14]}" onclick="line('${card.arr[14]}')"> ${card.arr[14] == undefined ? " " : card.arr[14]} </div>
                 </div>
-                <i class="fa-solid fa-circle-plus" id="cardAdd" onclick="addInnerData('${card.header}')"></i>
-                <i class="fa-solid fa-trash" id="cardRemove" onclick="removeCard('${card.header}')" ></i> 
-            </div>    
+            </div>
+            <i class="fa-solid fa-circle-plus" id="cardAdd" onclick="addInnerData('${card.header}')"></i>
+            <i class="fa-solid fa-trash" id="cardRemove" onclick="removeCard('${card.header}')" ></i>
+        </div>  
             `
             document.querySelector("section").innerHTML += CardHtmlData 
     } )
