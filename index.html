@@ -65,16 +65,13 @@
             color: white;
         }
         .card {
-            width: 20%;
-            height: 20rem;
-            background-color: #FFFF00;
-            color: black;
+            width: 100%;
+            height: 85%;
             text-align: center;
-            margin: 1rem;
-            overflow-y: scroll;
-            font-size: 1.2rem;
+            overflow-y: auto;
+            font-size: 1.4rem;
         }
-        .card:hover {
+        .cardContainer:hover {
             box-shadow: 1rem 1rem 1rem black;
             transform: translateY(-12px);
         }
@@ -124,6 +121,9 @@
             background-color: yellow;
             position: relative;
             color: black;
+            width: 20%;
+            height: 20rem;
+            margin: 1rem;
         }
         
         @media only screen and (max-width:500px)  {
@@ -142,7 +142,6 @@
             }
             .cardContainer {
                 width: 100%;
-                margin-bottom: 1rem;
             }
             #none {
                 display: none;
