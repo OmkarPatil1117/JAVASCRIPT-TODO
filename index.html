@@ -5,189 +5,46 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css" integrity="sha512-10/jx2EXwxxWqCLX/hHth/vu2KY3jCF70dCQB8TSgNjbCVAC/8vai53GfMDrO2Emgwccf2pJqxct9ehpzG+MTw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="style.css">
     <title>Java todo</title>
-    <style>
-        body {
-            margin: 0px;
-            padding: 0px;
-            box-sizing: border-box;
-            background-color: #87CEEB;
-            margin: 2rem;
-            color: white;
-            transition: 2s ease-in-out;
-        }
-        nav {
-            display: flex;
-            justify-content: space-between;
-        }
-        h1 {
-            padding: 1rem;
-            color: white;
-            font-size: 1.8rem;
-        }
-        span {
-            color: orange;
-            font-size: 2rem;
-        }
-        section {
-            margin: 1rem;
-        }
-        i {
-            cursor: pointer;
-        }
-        .popup {
-            width: 24rem;
-            height: 12rem;
-            background-color: white;
-            text-align: center;
-            border-radius: 2rem;
-            position: fixed;
-            top: 16rem;
-            right: 40%;
-        }
-        input {
-            padding: 0.8rem;
-            width: 80%;
-            border-radius: 1rem;
-            text-align: center;
-            margin: 1rem;
-        }
-        .addClose {
-            display: flex;
-            justify-content: center;
-        }
-        #addData, .closeTab, #addInnerData, .closeInnerTab  {
-            padding: 0.4rem;
-            width: 6rem;
-            margin: 4px;
-            border-radius: 1rem;
-            background-color: orange;
-            color: white;
-        }
-        .card {
-            width: 100%;
-            height: 85%;
-            text-align: center;
-            overflow-y: auto;
-            font-size: 1.4rem;
-        }
-        .cardContainer:hover {
-            box-shadow: 1rem 1rem 1rem black;
-            transform: translateY(-12px);
-        }
-        .cardHeader {
-            font-size: 1.6rem;
-            margin: 0.7rem;
-            padding: 0.4rem;
-        }
-        section {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-        }
-        strong {
-            color: black;
-        }
-        #cardAdd {
-            width: 2rem;
-            margin: 0.4rem;
-            position: absolute;
-            bottom: 0.4rem;
-            right: 3rem;
-
-        }
-        #cardRemove {
-            width:2rem;
-            margin: 0.4rem;
-            position: absolute;
-            bottom: 0.4rem;
-            right: 0.4rem;
-        }
-        #line {
-            text-decoration: line-through;
-        }
-        .innerD:hover {
-            cursor: pointer;
-
-        }
-        #curser {
-            cursor: pointer;
-        }
-        #curser:active {
-            color: #00FF00;
-        }
-
-        .cardContainer {
-            background-color: yellow;
-            position: relative;
-            color: black;
-            width: 20%;
-            height: 20rem;
-            margin: 1rem;
-        }
-        
-        @media only screen and (max-width:500px)  {
-            .popup {
-                width: 17rem;
-                height: 12rem;
-                position: fixed;
-                top: 16rem;
-                right: 15%;
-            }          
-            .card {
-                width: 100%;
-                margin: 0rem;
-                margin-bottom: 1rem;
-                
-            }
-            .cardContainer {
-                width: 100%;
-            }
-            #none {
-                display: none;
-            } 
-        }
-        
-    
-    </style>
 </head>
 <body>
-<div class="container">
-    <nav id="nav">
-        <h1 id="taskLogo" onclick="map()" >Tasks <span>List</span></h1>
-        <h1 id="add" onclick="popup()" ><div id="curser"> <i class="fa-solid fa-circle-plus"></i> <b id="none"> Add items</b></div></h1>
-    </nav>
+    <div class="container">
+        <nav id="nav">
+            <h1 id="taskLogo" onclick="map()" >Tasks <span>List</span></h1>
+            <h1 id="add" onclick="popup()" ><div id="curser"> <i class="fa-solid fa-circle-plus"></i> <b id="none"> Add items</b></div></h1>
+        </nav>
 
-    <section id="sec">
-        <span id="empty" > <span  >No items in the todo list</span></span> 
-        <!-- <div class="cardContainer">
-        <div class="card ${card.header}">
-            <p class="cardHeader" onclick="nextPage('${card.header}')">${card.header}</p>
-            <hr>
-            <div id="innerData">
-                <div id="${card.arr[0]}" onclick="line('${card.arr[0]}')" > ${card.arr[0] == undefined ? " " : card.arr[0]} </div>
-                <div id="${card.arr[1]}" onclick="line('${card.arr[1]}')"> ${card.arr[1] == undefined ? " " : card.arr[1]} </div>
+        <section id="sec">
+            <span id="empty" > <span  >No items in the todo list</span></span> 
+            <!-- <div class="cardContainer">
+            <div class="card ${card.header}">
+                <p class="cardHeader" onclick="nextPage('${card.header}')">${card.header}</p>
+                <hr>
+                <div id="innerData">
+                    <div id="${card.arr[0]}" onclick="line('${card.arr[0]}')" > ${card.arr[0] == undefined ? " " : card.arr[0]} </div>
+                    <div id="${card.arr[1]}" onclick="line('${card.arr[1]}')"> ${card.arr[1] == undefined ? " " : card.arr[1]} </div>
+                </div>
             </div>
-        </div>
-        <i class="fa-solid fa-circle-plus" id="cardAdd" onclick="addInnerData('${card.header}')"></i>
-        <i class="fa-solid fa-trash" id="cardRemove" onclick="removeCard('${card.header}')" ></i>
-    </div>  -->
-    </section>
-</div>
-    <!-- <div class="popup">
-        <div class="div">
-            <p>
-                <strong>Add New List</strong>
-            </p>
-            
-            <input type="text" placeholder="Add New List">
-            <div class="addClose">
-                <button id="addData">add</button>
-                <button class="closeTab">Close</button>
+            <i class="fa-solid fa-circle-plus" id="cardAdd" onclick="addInnerData('${card.header}')"></i>
+            <i class="fa-solid fa-trash" id="cardRemove" onclick="removeCard('${card.header}')" ></i>
+        </div>  -->
+        </section>
+    </div>
+        <!-- <div class="popup">
+            <div class="div">
+                <p>
+                    <strong>Add New List</strong>
+                </p>
+                
+                <input type="text" placeholder="Add New List">
+                <div class="addClose">
+                    <button id="addData">add</button>
+                    <button class="closeTab">Close</button>
+                </div>
             </div>
-        </div>
-    </div> -->
-   <script src="./main.js"></script>
+        </div> -->
+    <script src="./main.js"></script>
    
 </body>
 </html>
