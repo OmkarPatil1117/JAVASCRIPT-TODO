@@ -15,6 +15,9 @@ function del() {
 }
 
 const map = ()=> {
+    if( arr.length === 0 ) {
+        document.getElementById("sec").innerHTML = `<span id="empty" > <span  >No items in the todo list</span></span>`
+    } else {
     document.getElementById("sec").innerHTML = "";
     document.querySelector("#taskLogo").innerHTML = "Tasks <span>List</span>";
     document.getElementById("sec").style.justifyContent = "space-between";
@@ -34,6 +37,7 @@ const map = ()=> {
             `
             document.querySelector("section").innerHTML += CardHtmlData 
     } )
+  }
 }
 
 const popup = ()=> {
