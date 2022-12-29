@@ -1,5 +1,4 @@
-const arr = [];
-
+const arr = []
 
 const strData = (arr)=> {
     let str = ""
@@ -14,7 +13,16 @@ function del() {
     popup.remove()
 }
 
-const map = ()=> {
+let a = JSON.parse( localStorage.getItem("arr") )
+if(a == null ) { console.log("null") } else {
+    a.map( (item)=> {
+        arr.push(item)
+    } )
+}
+
+map()
+
+function map() {
     if( arr.length === 0 ) {
         document.getElementById("sec").innerHTML = `<span id="empty" > <span  >No items in the todo list</span></span>`
     } else {
@@ -71,6 +79,8 @@ const addCard = ()=> {
     }
     let objData = new obj(data)
     arr.push(objData)
+    let js = JSON.stringify(arr)
+    localStorage.setItem("arr", js)
     map()
     document.querySelector("#inp").value = "";
     del()
@@ -82,6 +92,8 @@ const removeCard = (name)=> {
                 arr.splice(index, 1)
         }
     })
+    let js = JSON.stringify(arr)
+    localStorage.setItem("arr", js)
     map()
 }
 
@@ -116,6 +128,8 @@ const addCardData = (cardName)=> {
             card.arr.push(data)
         }
     } )
+    let js = JSON.stringify(arr)
+    localStorage.setItem("arr", js)
     document.querySelector("#innerinp").value = "";
     document.querySelector("section").innerHTML = "";
     map();
